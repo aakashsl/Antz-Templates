@@ -7,7 +7,7 @@ def hello():
  
 @app.route('/toast')
 def toast():
-      return render_template('toast.html')
+      return render_template('Toast.html')
    
 @app.route('/popup')
 def popup():
