@@ -1,0 +1,502 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+   <title>Title</title>
+
+   <!-- Google Font -->
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      rel="stylesheet">
+   <!-- Required meta tags -->
+   <meta charset="utf-8" />
+   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+   <!-- Bootstrap CSS v5.2.1 -->
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+
+   <!--Remix icons-->
+   <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet" />
+
+   <style>
+      * {
+         font-family: inter;
+      }
+
+      .LabRequestUpdateSampleStatusSidesheet {
+         width: 562px;
+         height: fit-content;
+         border: 1px solid #C3CEC7;
+         border-radius: 5px;
+      }
+
+      .AILHearerBody {
+         display: flex;
+         align-items: center;
+         gap: 20px;
+         padding: 20px;
+         background-color: #EFF5F2;
+      }
+
+      .AILGender {
+         width: 24px;
+         height: 24px;
+         background-color: rgb(175, 239, 235, 0.50);
+         color: #00AFD6;
+         border-radius: 4px;
+         text-align: center;
+      }
+
+      .LRUSTitle {
+         font-size: 24px;
+         font-weight: 500;
+         color: #44544A;
+      }
+
+      .LRUSSelectTab {
+         background-color: unset;
+         border: none;
+         font-size: 14px;
+         font-weight: 600;
+         color: #7A8684;
+         padding: 15px 0;
+         border-bottom: 1px solid #C3CEC7;
+      }
+
+      .LRUSSelectTab.active {
+         color: #37BD69;
+         border-bottom: 2px solid #37BD69;
+      }
+
+      .numberBatch {
+         display: inline-flex;
+         align-items: center;
+         justify-content: center;
+         gap: 10px;
+         font-size: 12px;
+         font-weight: 600;
+         width: 24px;
+         height: 19px;
+         position: relative;
+         flex: 0 0 auto;
+         border-radius: 360px;
+         color: #ffffff;
+      }
+
+      .SampleLabData {
+         margin: 24px;
+      }
+
+      .search-box {
+         position: relative;
+         width: 100%;
+         max-width: 600px;
+         margin-top: 16px;
+      }
+
+      .search-box input {
+         width: 100%;
+         padding: 10px 12px 10px 38px;
+         border: 1px solid #c7d5cd;
+         /* soft border color */
+         border-radius: 6px;
+         font-size: 16px;
+         color: #333;
+         outline: none;
+      }
+
+      .search-box input::placeholder {
+         color: #a5b2aa;
+         /* light gray-green */
+      }
+
+      .search-box .bi-search {
+         position: absolute;
+         top: 50%;
+         left: 12px;
+         transform: translateY(-50%);
+         color: #44544A;
+         font-size: 16px;
+      }
+
+      .dashed-box {
+         border: 2px dashed #44544A;
+         border-radius: 2px;
+         padding: 1px;
+         display: inline-flex;
+         align-items: center;
+         justify-content: center;
+         width: 19px;
+         height: 19px;
+
+      }
+
+      .dashed-box input[type="checkbox"] {
+         width: 18px;
+         height: 18px;
+         border: 1px solid #44544A;
+         accent-color: #44544A;
+         /* modern browser support for checkbox color */
+      }
+
+      .SampleLabDataCard {
+         margin-top: 16px;
+         border: 0.5px solid #C3CEC7;
+         border-radius: 10px;
+      }
+
+      .RejectBtn {
+         border: 1px solid #FA6140;
+         background-color: #ffffff;
+         color: #FA6140;
+         padding: 8px 16px;
+         border-radius: 8px;
+         font-weight: 500;
+         font-size: 16px;
+      }
+
+      .CollectBtn {
+         background-color: #37BD69;
+         color: #ffffff;
+         border: none;
+         padding: 8px 16px;
+         border-radius: 8px;
+         font-weight: 500;
+         font-size: 16px;
+      }
+
+      .UpdateSampleStatus {
+         width: 562px;
+         border: 1px solid #C3CEC7;
+         border-radius: 10px;
+      }
+
+      .USSHeader {
+         display: flex;
+         justify-content: space-between;
+         align-items: center;
+         padding: 24px;
+         border-bottom: 1px solid #C3CEC7;
+      }
+
+      .USSBody {
+         padding: 24px;
+         
+      }
+
+      .input-wrapper {
+         position: relative;
+         width: 100%;
+         margin-bottom: 12px;
+      }
+
+      .input-field {
+         width: 100%;
+         padding: 10px 36px 10px 12px;
+         border: 1px solid #ccd5cc;
+         border-radius: 6px;
+         font-size: 14px;
+         color: #44544a;
+         appearance: none;
+         /* For select arrow removal */
+         -webkit-appearance: none;
+         -moz-appearance: none;
+         background-color: white;
+      }
+
+      .floating-label {
+         display: none;
+         position: absolute;
+         top: 12px;
+         left: 12px;
+         color: #97a09a;
+         font-size: 14px;
+         pointer-events: none;
+         transition: 0.2s ease all;
+         background-color: #ffffff;
+      }
+
+      .input-field:valid+.floating-label {
+         top: -9px;
+         font-size: 12px;
+         color: #44544a;
+         display: block;
+      }
+
+      .input-field:focus+.floating-label {
+         top: -9px;
+         font-size: 12px;
+         color: #44544a;
+         display: block;
+      }
+
+      .input-icon {
+         position: absolute;
+         right: 10px;
+         top: 50%;
+         transform: translateY(-50%);
+         color: #97a09a;
+         pointer-events: none;
+      }
+
+      input[type="date"]::-webkit-calendar-picker-indicator,
+      input[type="time"]::-webkit-calendar-picker-indicator,
+      select::-webkit-calendar-picker-indicator {
+         display: none;
+         -webkit-appearance: none;
+      }
+
+      .custom-textarea {
+         width: 100%;
+         min-height: 100px;
+         padding: 12px;
+         background-color: #fff7b3;
+         /* soft yellow */
+         border: none;
+         border-radius: 8px;
+         font-size: 14px;
+         color: #44544a;
+         resize: vertical;
+         /* optional */
+         outline: none;
+      }
+
+      .custom-textarea::placeholder {
+         color: #44544a;
+      }
+      .UpdateBtn{
+         margin: 24px;
+         background-color: #37BD69;
+         color: #ffffff;
+         border: none;
+         width: 514px;
+         height: 56px;
+         padding: 16px 45px;
+         border-radius: 5px;
+         font-weight: 500;
+         font-size: 15px;
+      }
+      .USSFooter{
+         display: flex;
+         justify-content: center;
+         box-shadow: 0 -1px 30px rgb(0, 0, 0, 0.10);
+      }
+   </style>
+</head>
+
+<body>
+
+   <main>
+
+      <div class="LabRequestUpdateSampleStatusSidesheet">
+         <div class="LRUSHeadder">
+            <div class="d-flex justify-content-between p-4 align-items-center">
+               <div>
+                  <h1 class="LRUSTitle">LAB REQ : LT - REQ123/25</h1>
+                  <p class="mb-0" style="color: #FA6140; font-size: 20px; font-weight: 500;">Pending</p>
+                  <div class="d-flex align-items-center gap-2">
+                     <p class="mb-0" style="font-size: 14px; font-weight: 400; color: #44544A;">Created by: <span
+                           style="color: #000; font-size: 16px; font-weight: 500;">Prajwal Shetty</span></p>
+                     <span><i style="color: #E4B819; font-size: 18px;" class="bi bi-clipboard2-data"></i></span>
+                  </div>
+                  <div class="d-flex align-items-center gap-3 mt-2">
+                     <span><i style="color: #7A8684;" class="bi bi-calendar"></i> 1 Jan 2025</span>
+                     <span><i style="color: #7A8684;" class="bi bi-clock"></i> 12:30 PM</span>
+                     <span><i style="color: #7A8684;" class="bi bi-geo-alt"></i> Gagwa</span>
+                  </div>
+               </div>
+               <span class="align-self-start"><i class="bi bi-x-lg"></i></span>
+            </div>
+            <div class="AILHearerBody">
+               <div class="d-flex flex-column align-items-center gap-3">
+                  <img src="/Rectangle 34624140.png" alt="">
+                  <p class="AILGender">M</p>
+               </div>
+               <div>
+                  <p class="mb-0" style="font-size: 14px; font-weight: 600; color: #44544A;">AID : BI23000123</p>
+                  <p class="mb-0" style="font-size: 16px; font-weight: 600; color: #44544A;">Asian Lion</p>
+                  <p class="mb-0" style="font-size: 16px; font-style: italic; color: #44544A;">Panthera leo persica</p>
+                  <p class="mb-0" style="font-size: 14px; font-weight: 400; color: #44544A;">Tropical Park ENC2</p>
+                  <p class="mb-0" style="font-size: 14px; font-weight: 400; color: #44544A;">Lion Park North</p>
+               </div>
+            </div>
+
+         </div>
+         <div class="LRUSBody">
+            <div class="row w-100 m-0">
+               <button class="LRUSSelectTab active col-6">SAMPLES (6)</button>
+               <button class="LRUSSelectTab col-6">TESTS (18)</button>
+            </div>
+         </div>
+
+         <div class="SampleLabData">
+            <div class="d-flex justify-content-between align-items-center">
+               <div class="d-flex gap-2 align-items-center">
+                  <span><img src="/testTube.svg" alt=""></span>
+                  <p class="mb-0" style="font-size: 20px; font-weight: 500; color: #44544A;">Samples</p>
+                  <span style="color: #44544A; font-size: 16px; font-weight: 600;">6</span>
+                  <span class="numberBatch" style="background-color: #37BD69;">2</span>
+                  <span class="numberBatch" style="background-color: #FA6140;">1</span>
+                  <span class="numberBatch" style="background-color: #7A8684;">3</span>
+               </div>
+               <div>
+                  <span><i style="font-size: 24px; color: #44544A;" class="bi bi-sliders"></i></span>
+                  <span><i style="font-size: 24px; columns: #44544A;" class="bi bi-three-dots-vertical"></i></span>
+               </div>
+            </div>
+
+            <div class="search-box">
+               <i class="bi bi-search"></i>
+               <input type="text" placeholder="Search samples" />
+            </div>
+
+            <div class="d-flex align-items-center gap-3" style="margin-top: 24px;">
+               <p class="mb-0" style="font-size: 16px; font-weight: 600; color: #44544A;">Select all</p>
+               <div class="dashed-box">
+                  <input type="checkbox" />
+               </div>
+            </div>
+
+            <div class="SampleLabDataCard">
+               <div class="d-flex justify-content-between align-items-center p-3">
+                  <div class="d-flex gap-3 align-items-center">
+                     <input type="checkbox" style="height: 16px; width: 16px;">
+                     <p class="mb-0" style="font-size: 16px; font-weight: 600; color: #44544A;">Serum</p>
+                  </div>
+                  <div>
+                     <button class="RejectBtn">Reject</button>
+                     <button class="CollectBtn">Collect</button>
+                     <span><i style="font-size: 16px; columns: #44544A;" class="bi bi-three-dots-vertical"></i></span>
+                  </div>
+               </div>
+               <div class="d-flex justify-content-between align-items-center p-3" style="background-color: #DDEBE9;">
+                  <div>
+                     <p class="mb-0" style="font-size: 14px; font-weight: 500; color: #44544A;">Departments - 2</p>
+                     <div class="d-flex gap-3">
+                        <p class="mb-0" style="font-size: 12px; font-weight: 400; color: #7A8684;">Tests : <span
+                              style="font-weight: 600; color: #44544A;">6</span></p>
+                        <p class="mb-0" style="font-size: 12px; font-weight: 400; color: #006D35;">Completed : <span
+                              style="font-weight: 600; color: #006D35;">0</span></p>
+                        <p class="mb-0" style="font-size: 12px; font-weight: 400; color: #7A8684;">In Progress : <span
+                              style="font-weight: 600; color: #44544A;">0</span></p>
+                        <p class="mb-0" style="font-size: 12px; font-weight: 400; color: #7A8684;">Pending : <span
+                              style="font-weight: 600; color: #44544A;">6</span></p>
+                     </div>
+                  </div>
+                  <div>
+                     <span><i class="bi bi-chevron-down"></i></span>
+                  </div>
+               </div>
+            </div>
+            <div class="SampleLabDataCard">
+               <div class="d-flex justify-content-between align-items-center p-3">
+                  <div class="d-flex gap-3 align-items-center">
+                     <input type="checkbox" style="height: 16px; width: 16px;">
+                     <p class="mb-0" style="font-size: 16px; font-weight: 600; color: #44544A;">Whole Blood Sample</p>
+                  </div>
+                  <div>
+                     <button class="RejectBtn">Reject</button>
+                     <button class="CollectBtn">Collect</button>
+                     <span><i style="font-size: 16px; columns: #44544A;" class="bi bi-three-dots-vertical"></i></span>
+                  </div>
+               </div>
+               <div class="d-flex justify-content-between align-items-center p-3" style="background-color: #DDEBE9;">
+                  <div>
+                     <p class="mb-0" style="font-size: 14px; font-weight: 500; color: #44544A;">Departments - 2</p>
+                     <div class="d-flex gap-3">
+                        <p class="mb-0" style="font-size: 12px; font-weight: 400; color: #7A8684;">Tests : <span
+                              style="font-weight: 600; color: #44544A;">6</span></p>
+                        <p class="mb-0" style="font-size: 12px; font-weight: 400; color: #006D35;">Completed : <span
+                              style="font-weight: 600; color: #006D35;">0</span></p>
+                        <p class="mb-0" style="font-size: 12px; font-weight: 400; color: #7A8684;">In Progress : <span
+                              style="font-weight: 600; color: #44544A;">0</span></p>
+                        <p class="mb-0" style="font-size: 12px; font-weight: 400; color: #7A8684;">Pending : <span
+                              style="font-weight: 600; color: #44544A;">6</span></p>
+                     </div>
+                  </div>
+                  <div>
+                     <span><i class="bi bi-chevron-down"></i></span>
+                  </div>
+               </div>
+            </div>
+
+         </div>
+
+
+         <div class="TestLabData">
+
+         </div>
+      </div>
+
+      <div class="UpdateSampleStatus">
+         <div class="USSHeader">
+            <div>
+               <h4 class="mb-0" style="font-size: 24px; font-weight: 500; columns: #44544A;">Update Sample Status</h4>
+               <p class="mb-0" style="font-size: 16px; font-weight: 400; color: #44544A;">Whole Blood Sample</p>
+            </div>
+            <div><i class="bi bi-x-lg"></i></div>
+         </div>
+         <div class="USSBody">
+
+            <div class="input-wrapper">
+               <select class="input-field" required>
+                  <option disabled selected hidden>Select Status</option>
+                  <option>Collected</option>
+                  <option>Rejected</option>
+
+               </select>
+               <span class="floating-label">Select Status</span>
+
+               <i class="bi bi-chevron-down input-icon"></i>
+            </div>
+
+            <div class="input-wrapper">
+               <input type="date" class="input-field" placeholder="Collection Date" required>
+               <label class="floating-label">Collection Date</label>
+               <i class="bi bi-calendar input-icon"></i>
+            </div>
+
+            <div class="input-wrapper">
+               <input type="time" class="input-field" placeholder="Collection Time" required>
+               <label class="floating-label">Collection Date</label>
+               <i class="bi bi-clock input-icon"></i>
+            </div>
+
+            <div>
+              <textarea class="custom-textarea" placeholder="Enter Notes"></textarea>
+            </div>
+         </div>
+         <div class="USSFooter">
+            <div class="text-center ">
+               <button class="UpdateBtn">UPDATE</button>
+            </div>
+         </div>
+      </div>
+   </main>
+
+   <!-- Bootstrap JavaScript Libraries -->
+   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+      integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+      crossorigin="anonymous"></script>
+
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+      integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+      crossorigin="anonymous"></script>
+
+   <script>
+
+      const tabs = document.querySelectorAll('.LRUSSelectTab');
+      tabs.forEach(tab => {
+         tab.addEventListener('click', () => {
+            tabs.forEach(t => t.classList.remove('active'));
+            tab.classList.add('active');
+         });
+      });
+   </script>
+</body>
+
+</html>

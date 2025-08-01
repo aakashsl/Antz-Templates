@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+   <title>Animal Identification List</title>
+
+       <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+   <!-- Required meta tags -->
+   <meta charset="utf-8" />
+   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+   <!-- Bootstrap CSS v5.2.1 -->
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+
+
+   <!--Remix icons-->
+   <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet" />
+   <style>
+      * {
+         font-family: inter;
+      }
+      .AnimalIdentifierList {
+         width: 562px;
+         height: 100%;
+         border: 1px solid #C3CEC7;
+         border-radius: 5px;
+      }
+
+      .AILTitle {
+         font-size: 24px;
+         font-weight: 500;
+         color: #44544A;
+      }
+
+      .AILHearerBody {
+         display: flex;
+         align-items: center;
+         gap: 20px;
+         padding: 20px;
+         background-color: #EFF5F2;
+      }
+
+      .AILGender {
+         width: 24px;
+         height: 24px;
+         background-color: rgb(175, 239, 235, 0.50);
+         color: #00AFD6;
+         border-radius: 4px;
+         text-align: center;
+      }
+
+      .AILCard {
+         margin: 24px;
+         border: 1px solid #C3CEC7;
+         border-radius: 5px;
+      }
+
+      .AILCardHeader {
+         padding: 16px;
+      }
+
+      .AILCardBody {
+         padding: 16px;
+         background-color: #E8F4F2;
+         border-bottom-left-radius: 5px;
+         border-bottom-right-radius: 5px;
+      }
+   </style>
+</head>
+
+<body>
+   <main>
+      <div class="AnimalIdentifierList">
+         <div class="AILHeadder">
+            <div class="d-flex justify-content-between p-4 align-items-center">
+               <h1 class="AILTitle">Animal Identifier List</h1>
+               <span><i class="bi bi-x-lg"></i></span>
+            </div>
+            <div class="AILHearerBody">
+               <div class="d-flex flex-column align-items-center gap-3">
+                  <img src="/static/img/lion.png" alt="">
+                  <p class="AILGender">M</p>
+               </div>
+               <div>
+                  <p class="mb-0" style="font-size: 14px; font-weight: 600; color: #44544A;">AID : BI23000123</p>
+                  <p class="mb-0" style="font-size: 16px; font-weight: 600; color: #44544A;">Asian Lion</p>
+                  <p class="mb-0" style="font-size: 16px; font-style: italic; color: #44544A;">Panthera leo persica</p>
+                  <p class="mb-0" style="font-size: 14px; font-weight: 400; color: #44544A;">Tropical Park ENC2</p>
+                  <p class="mb-0" style="font-size: 14px; font-weight: 400; color: #44544A;">Lion Park North</p>
+               </div>
+            </div>
+         </div>
+         <div class="AILBody">
+            <div class="AILCard">
+               <div class="AILCardHeader">
+                  <div class="d-flex gap-2" style="color: #000000; font-size: 16px; font-weight: 500;">
+                     <span>
+                        <i style="color: #1F515B;" class="bi bi-person-vcard"></i>
+                     </span>
+                     <p class="mb-0">Primary</p>
+                  </div>
+                  <p class="mb-0" style="font-size: 12px; font-weight: 400;color: #44544A;">Primary Identifier Type:
+                     Local ID</p>
+               </div>
+               <div class="AILCardBody">
+                  <p class="mb-0" style="color: #1F515B; font-size: 16px; font-weight: 600;">AID : BI23000123</p>
+                  <p class="mb-0" style="color: #7A8684; font-size: 14px; font-weight: 400;">Added : 2 Jun 2025</p>
+               </div>
+            </div>
+            <div class="AILCard">
+               <div class="AILCardHeader">
+                  <div class="d-flex gap-2" style="color: #000000; font-size: 16px; font-weight: 500;">
+                     <span>
+                        <i style="color: #1F515B;" class="ri-dna-line"></i>
+                     </span>
+                     <p class="mb-0">DNA</p>
+                  </div>
+
+               </div>
+               <div class="AILCardBody">
+                  <p class="mb-0" style="color: #1F515B; font-size: 16px; font-weight: 600;">DNA- B1409940</p>
+                  <p class="mb-0" style="color: #7A8684; font-size: 14px; font-weight: 400;">Added : 2 Jun 2025</p>
+               </div>
+            </div>
+            <div class="AILCard">
+               <div class="AILCardHeader">
+                  <div class="d-flex gap-2" style="color: #000000; font-size: 16px; font-weight: 500;">
+                     <span>
+                        <i style="color: #1F515B;" class="bi bi-postcard"></i>
+                     </span>
+                     <p class="mb-0">Registration Number</p>
+                  </div>
+
+               </div>
+               <div class="AILCardBody">
+                  <p class="mb-0" style="color: #1F515B; font-size: 16px; font-weight: 600;">RN - B1409940</p>
+                  <p class="mb-0" style="color: #7A8684; font-size: 14px; font-weight: 400;">Added : 2 Jun 2025</p>
+               </div>
+            </div>
+            <div class="AILCard">
+               <div class="AILCardHeader">
+                  <div class="d-flex gap-2" style="color: #000000; font-size: 16px; font-weight: 500;">
+                     <span>
+                        <i style="color: #1F515B;" class="bi bi-cpu"></i>
+                     </span>
+                     <p class="mb-0">Microchip</p>
+                  </div>
+
+               </div>
+               <div class="AILCardBody">
+                  <p class="mb-0" style="color: #1F515B; font-size: 16px; font-weight: 600;">MC - B1409940</p>
+                  <p class="mb-0" style="color: #7A8684; font-size: 14px; font-weight: 400;">Added : 2 Jun 2025</p>
+               </div>
+            </div>
+            <div class="AILCard">
+               <div class="AILCardHeader">
+                  <div class="d-flex gap-2" style="color: #000000; font-size: 16px; font-weight: 500;">
+                     <span>
+                        <i style="color: #1F515B;" class="bi bi-twitter"></i>
+                     </span>
+                     <p class="mb-0">Name</p>
+                  </div>
+
+               </div>
+               <div class="AILCardBody">
+                  <p class="mb-0" style="color: #1F515B; font-size: 16px; font-weight: 600;">Leo</p>
+                  <p class="mb-0" style="color: #7A8684; font-size: 14px; font-weight: 400;">Added : 2 Jun 2025</p>
+               </div>
+            </div>
+            <div class="AILCard">
+               <div class="AILCardHeader">
+                  <div class="d-flex gap-2" style="color: #000000; font-size: 16px; font-weight: 500;">
+                     <span>
+                        <i style="color: #1F515B;" class="bi bi-tag"></i>
+                     </span>
+                     <p class="mb-0">Local ID</p>
+                  </div>
+
+               </div>
+               <div class="AILCardBody">
+                  <p class="mb-0" style="color: #1F515B; font-size: 16px; font-weight: 600;">AN - B1409940</p>
+                  <p class="mb-0" style="color: #7A8684; font-size: 14px; font-weight: 400;">Added : 2 Jun 2025</p>
+               </div>
+            </div>
+         </div>
+      </div>
+   </main>
+
+   <!-- Bootstrap JavaScript Libraries -->
+   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+      integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+      crossorigin="anonymous"></script>
+
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+      integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+      crossorigin="anonymous"></script>
+</body>
+
+</html>

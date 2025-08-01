@@ -1,0 +1,481 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+   <title>Antz Template</title>
+   <meta charset="utf-8" />
+   <meta name="viewport" content="width=device-width, initial-scale=1" />
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+   <link rel="stylesheet" href="/static/style.css">
+   <!--Remix icons-->
+   <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet" />
+</head>
+
+<body>
+   <main class="container">
+      <div class="ToastContainer mt-5">
+         <h4 class="">Toast</h4>
+         <div class="btn-group">
+            <button class="btn btn-success" onclick="showToast('success')">Show Success Toast</button>
+            <button class="btn btn-danger" onclick="showToast('alert')">Show Alert Toast</button>
+            <a href="/toast" target="_blank" class="btn btn-info">view</a>
+         </div>
+      </div>
+      <div class="PopupContainer mt-5">
+         <h4 class="">Popup</h4>
+         <div class="btn-group">
+            <button class="btn btn-success" onclick="showPopup('success')">Show Authorization Popup</button>
+            <button class="btn btn-danger" onclick="showPopup('alert')">Show Reset All Popup</button>
+            <a href="/popup" target="_blank" class="btn btn-info">view</a>
+         </div>
+      </div>
+      <div class="AnimalIdContainer mt-5">
+         <h4 class="">Animal Identification List</h4>
+         <div class="btn-group">
+            <button class="btn btn-success" onclick="openPanel()">Show</button>
+            <a href="/AnimalId" target="_blank" class="btn btn-info">view</a>
+         </div>
+      </div>
+      <div class="AnimalJournalContainer mt-5">
+         <h4 class="">Animal Lab Test Journal</h4>
+         <div class="btn-group">
+            <button class="btn btn-success" onclick="openJournalPanel()">Show</button>
+            <a href="/AnimalJournal" target="_blank" class="btn btn-info">view</a>
+         </div>
+      </div>
+      <div class="SampleUpdateContainer mt-5">
+         <h4 class="">Sample Status - Received by lab</h4>
+         <div class="btn-group">
+            <a href="/SampleUpdate" target="_blank" class="btn btn-info">view</a>
+         </div>
+      </div>
+
+      <div class="popupOverlay d-none" id="popupOverlayAuth">
+         <div class="popupCard ">
+            <div class="popup-icon-success">
+               <span>
+                  <i class="bi bi-file-earmark-check" style="font-size: 64px;"></i>
+               </span>
+            </div>
+            <div>
+               <h4 class="popupTitle">Final Authorization</h4>
+               <p class="popupContent">You are authorizing all completed test results. After this, the report will be
+                  locked and cannot be
+                  edited. Make sure all values and flags are reviewed before proceeding.</p>
+            </div>
+            <div>
+               <button class="popupCancelBtn">CANCEL</button>
+               <button class="popupAuthBtn">AUTHORISE ALL</button>
+            </div>
+         </div>
+      </div>
+      <div class="popupOverlay d-none" id="popupOverlayReset">
+         <div class="popupCard">
+            <div class="popup-icon-danger">
+               <span>
+                  <i class="bi bi-folder-x" style="font-size: 64px;"></i>
+               </span>
+            </div>
+            <div>
+               <h4 class="popupTitle">Reset All Result Values?</h4>
+               <p class="popupContent">This will clear all entered values in the current screen. Do you wish to
+                  continue?
+               </p>
+            </div>
+            <div>
+               <button class="popupCancelBtn">CANCEL</button>
+               <button class="popupResetBtn">RESET VALUES</button>
+            </div>
+         </div>
+      </div>
+
+      <div id="animalPanel" class="slide-panel">
+         <div class="AILHeadder">
+            <div class="d-flex justify-content-between p-4 align-items-center">
+               <h1 class="AILTitle">Animal Identifier List</h1>
+               <span onclick="closePanel()"><i class="bi bi-x-lg"></i></span>
+            </div>
+            <div class="AILHearerBody">
+               <div class="d-flex flex-column align-items-center gap-3">
+                  <img src="/static/img/lion.png" alt="">
+                  <p class="AILGender">M</p>
+               </div>
+               <div>
+                  <p class="mb-0" style="font-size: 14px; font-weight: 600; color: #44544A;">AID : BI23000123</p>
+                  <p class="mb-0" style="font-size: 16px; font-weight: 600; color: #44544A;">Asian Lion</p>
+                  <p class="mb-0" style="font-size: 16px; font-style: italic; color: #44544A;">Panthera leo persica</p>
+                  <p class="mb-0" style="font-size: 14px; font-weight: 400; color: #44544A;">Tropical Park ENC2</p>
+                  <p class="mb-0" style="font-size: 14px; font-weight: 400; color: #44544A;">Lion Park North</p>
+               </div>
+            </div>
+         </div>
+         <div class="AILBody">
+            <div class="AILCard">
+               <div class="AILCardHeader">
+                  <div class="d-flex gap-2" style="color: #000000; font-size: 16px; font-weight: 500;">
+                     <span>
+                        <i style="color: #1F515B;" class="bi bi-person-vcard"></i>
+                     </span>
+                     <p class="mb-0">Primary</p>
+                  </div>
+                  <p class="mb-0" style="font-size: 12px; font-weight: 400;color: #44544A;">Primary Identifier Type:
+                     Local ID</p>
+               </div>
+               <div class="AILCardBody">
+                  <p class="mb-0" style="color: #1F515B; font-size: 16px; font-weight: 600;">AID : BI23000123</p>
+                  <p class="mb-0" style="color: #7A8684; font-size: 14px; font-weight: 400;">Added : 2 Jun 2025</p>
+               </div>
+            </div>
+            <div class="AILCard">
+               <div class="AILCardHeader">
+                  <div class="d-flex gap-2" style="color: #000000; font-size: 16px; font-weight: 500;">
+                     <span>
+                        <i style="color: #1F515B;" class="ri-dna-line"></i>
+                     </span>
+                     <p class="mb-0">DNA</p>
+                  </div>
+
+               </div>
+               <div class="AILCardBody">
+                  <p class="mb-0" style="color: #1F515B; font-size: 16px; font-weight: 600;">DNA- B1409940</p>
+                  <p class="mb-0" style="color: #7A8684; font-size: 14px; font-weight: 400;">Added : 2 Jun 2025</p>
+               </div>
+            </div>
+            <div class="AILCard">
+               <div class="AILCardHeader">
+                  <div class="d-flex gap-2" style="color: #000000; font-size: 16px; font-weight: 500;">
+                     <span>
+                        <i style="color: #1F515B;" class="bi bi-postcard"></i>
+                     </span>
+                     <p class="mb-0">Registration Number</p>
+                  </div>
+
+               </div>
+               <div class="AILCardBody">
+                  <p class="mb-0" style="color: #1F515B; font-size: 16px; font-weight: 600;">RN - B1409940</p>
+                  <p class="mb-0" style="color: #7A8684; font-size: 14px; font-weight: 400;">Added : 2 Jun 2025</p>
+               </div>
+            </div>
+            <div class="AILCard">
+               <div class="AILCardHeader">
+                  <div class="d-flex gap-2" style="color: #000000; font-size: 16px; font-weight: 500;">
+                     <span>
+                        <i style="color: #1F515B;" class="bi bi-cpu"></i>
+                     </span>
+                     <p class="mb-0">Microchip</p>
+                  </div>
+
+               </div>
+               <div class="AILCardBody">
+                  <p class="mb-0" style="color: #1F515B; font-size: 16px; font-weight: 600;">MC - B1409940</p>
+                  <p class="mb-0" style="color: #7A8684; font-size: 14px; font-weight: 400;">Added : 2 Jun 2025</p>
+               </div>
+            </div>
+            <div class="AILCard">
+               <div class="AILCardHeader">
+                  <div class="d-flex gap-2" style="color: #000000; font-size: 16px; font-weight: 500;">
+                     <span>
+                        <i style="color: #1F515B;" class="bi bi-twitter"></i>
+                     </span>
+                     <p class="mb-0">Name</p>
+                  </div>
+
+               </div>
+               <div class="AILCardBody">
+                  <p class="mb-0" style="color: #1F515B; font-size: 16px; font-weight: 600;">Leo</p>
+                  <p class="mb-0" style="color: #7A8684; font-size: 14px; font-weight: 400;">Added : 2 Jun 2025</p>
+               </div>
+            </div>
+            <div class="AILCard">
+               <div class="AILCardHeader">
+                  <div class="d-flex gap-2" style="color: #000000; font-size: 16px; font-weight: 500;">
+                     <span>
+                        <i style="color: #1F515B;" class="bi bi-tag"></i>
+                     </span>
+                     <p class="mb-0">Local ID</p>
+                  </div>
+
+               </div>
+               <div class="AILCardBody">
+                  <p class="mb-0" style="color: #1F515B; font-size: 16px; font-weight: 600;">AN - B1409940</p>
+                  <p class="mb-0" style="color: #7A8684; font-size: 14px; font-weight: 400;">Added : 2 Jun 2025</p>
+               </div>
+            </div>
+         </div>
+      </div>
+
+      <div id="animalJournalPanel" class="slide-panel">
+         <div class="AnimalLabTestJournal">
+            <div class="ALTJHeadder">
+               <div>
+                  <h4 class="mb-0" style="font-size: 24px; color: #44544A; font-weight: 500;">Animal Lab Test Journal
+                  </h4>
+                  <p class="mb-0" style="font-size: 16px; font-weight: 400; color: #44544A;">Total 4 Tests</p>
+               </div>
+               <div onclick="closeJournalPanel()"><i class="bi bi-x-lg"></i></div>
+            </div>
+            <div class="ALTJBody p-3">
+
+               <!-- Received Sample -->
+               <div class="timeline-row d-flex gap-3 align-items-start mb-3 position-relative">
+                  <div class="p-1 icon-circle z-1 position-relative">
+                     <i class="bi bi-check-lg icon-check icon-warning"></i>
+                  </div>
+                  <div class="w-100 ALTJCard received-border">
+                     <div class="d-flex justify-content-between w-100 ALTJCardHeader received-header">
+                        <div>
+                           <h4 class="test-title">Reticulocyte Count</h4>
+                           <p class="sample-type">Whole Blood (EDTA tube)</p>
+                           <p class="received-status">In Progress</p>
+                        </div>
+                        <div class="text-end ALTJDateTime">
+                           <p>04 Jul 2025</p>
+                           <p>10 : 47 AM</p>
+                        </div>
+                     </div>
+                     <div class="d-flex gap-3 align-items-center ALTJCardFooter">
+                        <img src="/Avatar.png" alt="">
+                        <div>
+                           <p class="user-name">Jane Doe</p>
+                           <p class="user-status">Received Sample</p>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+
+               <!-- Authorised -->
+               <div class="timeline-row d-flex gap-3 align-items-start mb-3 position-relative">
+                  <div class="p-1 icon-circle z-1 position-relative">
+                     <i class="bi bi-check-lg icon-check"></i>
+                  </div>
+                  <div class="w-100 ALTJCard authorised-border">
+                     <div class="d-flex justify-content-between w-100 ALTJCardHeader authorised-header">
+                        <div>
+                           <h4 class="test-title">Coagulation Profile (PT, aPTT)</h4>
+                           <p class="sample-type">Citrate Plasma</p>
+                           <p class="authorised-status">Completed</p>
+                        </div>
+                        <div class="text-end ALTJDateTime">
+                           <p>04 Jul 2025</p>
+                           <p>11 : 12 AM</p>
+                        </div>
+                     </div>
+                     <div class="d-flex gap-3 align-items-center ALTJCardFooter">
+                        <img src="/Avatar.png" alt="">
+                        <div>
+                           <p class="user-name">Jane Doe</p>
+                           <p class="user-status">Authorised</p>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+
+               <!-- Rejected Sample -->
+               <div class="timeline-row d-flex gap-3 align-items-start mb-3 position-relative">
+                  <div class="p-1 icon-circle z-1 position-relative">
+                     <i class="bi bi-ban icon-rejected"></i>
+                  </div>
+                  <div class="w-100 ALTJCard rejected-border">
+                     <div class="d-flex justify-content-between w-100 ALTJCardHeader rejected-header">
+                        <div>
+                           <h4 class="test-title">Bone Marrow Aspiration Analysis</h4>
+                           <p class="sample-type">Citrate Plasma</p>
+                           <p class="rejected-status">Insufficient Sample</p>
+                        </div>
+                        <div class="text-end ALTJDateTime">
+                           <p>04 Jul 2025</p>
+                           <p>9 : 12 AM</p>
+                        </div>
+                     </div>
+                     <div class="d-flex gap-3 align-items-center ALTJCardFooter">
+                        <img src="/Avatar.png" alt="">
+                        <div>
+                           <p class="user-name">Jane Doe</p>
+                           <p class="user-status">Rejected sample</p>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="timeline-row d-flex gap-3 align-items-start mb-3 position-relative">
+                  <div class="p-1 icon-circle z-1 position-relative">
+                     <i class="bi bi-check-lg icon-check"></i>
+                  </div>
+                  <div class="w-100 ALTJCard authorised-border">
+                     <div class="d-flex justify-content-between w-100 ALTJCardHeader authorised-header">
+                        <div>
+                           <h4 class="test-title">Coagulation Profile (PT, aPTT)</h4>
+                           <p class="sample-type">Citrate Plasma</p>
+                           <p class="authorised-status">Completed</p>
+                        </div>
+                        <div class="text-end ALTJDateTime">
+                           <p>04 Jul 2025</p>
+                           <p>11 : 12 AM</p>
+                        </div>
+                     </div>
+                     <div class="d-flex gap-3 align-items-center ALTJCardFooter">
+                        <img src="/Avatar.png" alt="">
+                        <div>
+                           <p class="user-name">Jane Doe</p>
+                           <p class="user-status">Authorised</p>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="timeline-row d-flex gap-3 align-items-start mb-3 position-relative">
+                  <div class="p-1 icon-circle z-1 position-relative">
+                     <i class="bi bi-check-lg icon-check"></i>
+                  </div>
+                  <div class="w-100 ALTJCard authorised-border">
+                     <div class="d-flex justify-content-between w-100 ALTJCardHeader authorised-header">
+                        <div>
+                           <h4 class="test-title">Coagulation Profile (PT, aPTT)</h4>
+                           <p class="sample-type">Citrate Plasma</p>
+                           <p class="authorised-status">Completed</p>
+                        </div>
+                        <div class="text-end ALTJDateTime">
+                           <p>04 Jul 2025</p>
+                           <p>11 : 12 AM</p>
+                        </div>
+                     </div>
+                     <div class="d-flex gap-3 align-items-center ALTJCardFooter">
+                        <img src="/Avatar.png" alt="">
+                        <div>
+                           <p class="user-name">Jane Doe</p>
+                           <p class="user-status">Authorised</p>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+
+               <div class=" d-flex gap-3 align-items-start mb-3 position-relative">
+                  <div class="p-1 icon-circle z-1 position-relative">
+                     <i class="bi bi-ban icon-rejected"></i>
+                  </div>
+                  <div class="w-100 ALTJCard rejected-border">
+                     <div class="d-flex justify-content-between w-100 ALTJCardHeader rejected-header">
+                        <div>
+                           <h4 class="test-title">Bone Marrow Aspiration Analysis</h4>
+                           <p class="sample-type">Citrate Plasma</p>
+                           <p class="rejected-status">Insufficient Sample</p>
+                        </div>
+                        <div class="text-end ALTJDateTime">
+                           <p>04 Jul 2025</p>
+                           <p>9 : 12 AM</p>
+                        </div>
+                     </div>
+                     <div class="d-flex gap-3 align-items-center ALTJCardFooter">
+                        <img src="/Avatar.png" alt="">
+                        <div>
+                           <p class="user-name">Jane Doe</p>
+                           <p class="user-status">Rejected sample</p>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+
+            </div>
+         </div>
+      </div>
+   </main>
+
+
+
+   <!-- Toast Container -->
+   <div class="toast-container" id="toastContainer"></div>
+
+   <script>
+      function showToast(type) {
+         const container = document.getElementById("toastContainer");
+
+         const toast = document.createElement("div");
+         toast.className = "toastCard show";
+
+         if (type === 'success') {
+            toast.innerHTML = `
+
+         <div class="toast-header">
+            <div class="d-inline-flex gap-2 pb-2">
+               <span class="toast-icon-success"><i class="bi bi-check2"></i></span>
+               <p style="font-size: 24px; font-weight: 500;">Success!</p>
+            </div>
+            <div>
+               <i class="bi bi-x-lg"></i>
+            </div>
+         </div>
+         <div class="toast-body">
+            <p style="font-size: 14px; font-weight: 400; margin: 16px 24px ;">All selected samples marked as received.
+            </p>
+         </div>
+
+            `;
+         } else if (type === 'alert') {
+            toast.innerHTML = `
+
+         <div class="toast-header">
+            <div class="d-inline-flex gap-2 pb-2">
+               <span class="toast-icon-Alert"><i class="bi bi-exclamation-lg"></i></span>
+               <p style="font-size: 24px; font-weight: 500;">Alert!!</p>
+            </div>
+            <div>
+               <i class="bi bi-x-lg"></i>
+            </div>
+         </div>
+         <div class="toast-body">
+            <p style="font-size: 14px; font-weight: 400; margin: 16px 24px ;">Reference range not configured for
+               selected species
+            </p>
+         </div>
+            `;
+         }
+
+         container.appendChild(toast);
+
+         // Auto-remove after 4 seconds
+         setTimeout(() => {
+            toast.classList.remove("show");
+            setTimeout(() => toast.remove(), 300);
+         }, 4000);
+      }
+
+      function showPopup(type) {
+         const overlay = document.getElementById(type === 'success' ? 'popupOverlayAuth' : 'popupOverlayReset');
+         overlay.classList.remove('d-none');
+
+         // Close popup on clicking the cancel button
+         overlay.querySelector('.popupCancelBtn').addEventListener('click', () => {
+            overlay.classList.add('d-none');
+         });
+
+         // Close popup on clicking the close icon
+         overlay.querySelector('.bi-x-lg').addEventListener('click', () => {
+            overlay.classList.add('d-none');
+         });
+
+      }
+   </script>
+
+   <script>
+      function openPanel() {
+         document.getElementById("animalPanel").classList.add("show");
+      }
+
+      function closePanel() {
+         document.getElementById("animalPanel").classList.remove("show");
+      }
+   </script>
+   <script>
+      function openJournalPanel() {
+         document.getElementById("animalJournalPanel").classList.add("show");
+      }
+
+      function closeJournalPanel() {
+         document.getElementById("animalJournalPanel").classList.remove("show");
+      }
+   </script>
+
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

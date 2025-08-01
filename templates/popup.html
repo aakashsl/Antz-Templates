@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+   <title>Popup</title>
+
+       <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+   <!-- Required meta tags -->
+   <meta charset="utf-8" />
+   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+   <!-- Bootstrap CSS v5.2.1 -->
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+   <style>
+      * {
+         font-family: inter;
+      }
+      .popupCard {
+         width: 500px;
+         height: fit-content;
+         border: 1px solid #C3CEC7;
+         border-radius: 10px;
+         padding: 40px 24px;
+         text-align: center;
+         margin: 50px;
+      }
+
+      .popup-icon-success {
+         width: 96px;
+         height: 96px;
+         background-color: #E1F9ED;
+         color: #37BD69;
+         border-radius: 20px;
+         align-items: center;
+         display: flex;
+         justify-content: center;
+         margin: 0 auto 24px auto;
+      }
+
+      .popupTitle {
+         font-size: 24px;
+         font-weight: 600;
+         color: #44544A;
+         margin-top: 32px;
+         margin-bottom: 12px;
+      }
+
+      .popupContent {
+         font-size: 14px;
+         font-weight: 400;
+         color: rgb(68, 84, 74, 0.87);
+         margin-bottom: 32px;
+      }
+
+      .popupCancelBtn {
+         border: 1px solid #44544A;
+         background-color: #ffffff;
+         color: #44544A;
+         padding: 16px 45px;
+         border-radius: 5px;
+         font-weight: 500;
+         margin-right: 10px;
+      }
+
+      .popupAuthBtn {
+         background-color: #37BD69;
+         color: #ffffff;
+         border: none;
+         padding: 16px 45px;
+         border-radius: 5px;
+         font-weight: 500;
+      }
+
+      .popup-icon-danger {
+         width: 96px;
+         height: 96px;
+         background-color: rgb(0, 0, 0, 0.05);
+         color: #E93353;
+         border-radius: 20px;
+         align-items: center;
+         display: flex;
+         justify-content: center;
+         margin: 0 auto 24px auto;
+      }
+
+      .popupResetBtn {
+         background-color: #E93353;
+         color: #ffffff;
+         border: none;
+         padding: 16px 45px;
+         border-radius: 5px;
+         font-weight: 500;
+      }
+   </style>
+</head>
+
+<body>
+   <main>
+
+      <div class="popupCard Auth">
+         <div class="popup-icon-success">
+            <span>
+               <i class="bi bi-file-earmark-check" style="font-size: 64px;"></i>
+            </span>
+         </div>
+         <div>
+            <h4 class="popupTitle">Final Authorization</h4>
+            <p class="popupContent">You are authorizing all completed test results. After this, the report will be
+               locked and cannot be
+               edited. Make sure all values and flags are reviewed before proceeding.</p>
+         </div>
+         <div>
+            <button class="popupCancelBtn">CANCEL</button>
+            <button class="popupAuthBtn">AUTHORISE ALL</button>
+         </div>
+      </div>
+      <div class="popupCard Reset">
+         <div class="popup-icon-danger">
+            <span>
+               <i class="bi bi-folder-x" style="font-size: 64px;"></i>
+            </span>
+         </div>
+         <div>
+            <h4 class="popupTitle">Reset All Result Values?</h4>
+            <p class="popupContent">This will clear all entered values in the current screen. Do you wish to continue?
+            </p>
+         </div>
+         <div>
+            <button class="popupCancelBtn">CANCEL</button>
+            <button class="popupResetBtn">RESET VALUES</button>
+         </div>
+      </div>
+   </main>
+
+   <!-- Bootstrap JavaScript Libraries -->
+   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+      integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+      crossorigin="anonymous"></script>
+
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+      integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+      crossorigin="anonymous"></script>
+</body>
+
+</html>
